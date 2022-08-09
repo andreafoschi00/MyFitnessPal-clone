@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyFitnessPal</string>
+    <string name="myfitnesspal">myfitnesspal</string>
+    <string name="register">Sign in</string>
+    <string name="log_in">Log in</string>
+    <string name="back">Back</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email address</string>
+</resources>

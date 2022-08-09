@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyFitnessPal</string>
+    <string name="myfitnesspal">myfitnesspal</string>
+    <string name="register">Registrati</string>
+    <string name="log_in">Accedi</string>
+    <string name="back">Indietro</string>
+    <string name="password">Password</string>
+    <string name="email_address">Indirizzo email</string>
+</resources>
