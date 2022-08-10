@@ -7,4 +7,14 @@
     <string name="back">Indietro</string>
     <string name="password">Password</string>
     <string name="email_address">Indirizzo email</string>
+    <string name="male">Maschio</string>
+    <string name="female">Femmina</string>
+    <string name="gender">Sesso</string>
+    <string name="birthdate">Data di nascita</string>
+    <string name="height">Altezza</string>
+    <string name="_0_cm">0 cm</string>
+    <string name="weight">Peso</string>
+    <string name="_0_kg">0 kg</string>
+    <string name="e_mail">E-mail</string>
+    <string name="username">Username</string>
 </resources>

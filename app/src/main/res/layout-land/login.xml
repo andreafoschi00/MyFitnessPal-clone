@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/dark_blue">
 
-   <include layout="@layout/login_topbar" android:id="@+id/login_topbar_imported" />
+    <include
+        android:id="@+id/login_topbar_imported"
+        layout="@layout/login_topbar" />
 
     <EditText
         android:id="@+id/email_placetext"
@@ -65,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="25dp"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

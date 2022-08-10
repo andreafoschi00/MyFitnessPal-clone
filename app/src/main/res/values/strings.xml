@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyFitnessPal</string>
     <string name="myfitnesspal">myfitnesspal</string>
@@ -6,4 +7,14 @@
     <string name="back">Back</string>
     <string name="password">Password</string>
     <string name="email_address">Email address</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="height">Height</string>
+    <string name="_0_cm">0 cm</string>
+    <string name="weight">Weight</string>
+    <string name="_0_kg">0 kg</string>
+    <string name="e_mail">E-mail</string>
+    <string name="username">Username</string>
 </resources>
