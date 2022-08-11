@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/dark_blue">
 
-    <include
+    <!-- <include
         android:id="@+id/login_topbar_imported"
-        layout="@layout/login_topbar" />
+        layout="@layout/login_topbar" /> -->
 
     <EditText
         android:id="@+id/email_placetext"
@@ -29,7 +29,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_topbar_imported" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/psw_placetext"

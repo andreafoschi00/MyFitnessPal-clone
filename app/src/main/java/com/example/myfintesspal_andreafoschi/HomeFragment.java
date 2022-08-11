@@ -1,8 +1,11 @@
 package com.example.myfintesspal_andreafoschi;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,6 +18,11 @@ import androidx.fragment.app.FragmentActivity;
 
 public class HomeFragment extends Fragment {
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,7 +34,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         FragmentActivity activity = getActivity();
         if(activity != null) {
-
             Button loginButton = view.findViewById(R.id.login_button);
             Button registerButton = view.findViewById(R.id.register_button);
 
@@ -47,5 +54,18 @@ public class HomeFragment extends Fragment {
         } else {
             Log.e("HomeFragment", "Activity is null");
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(getActivity() != null)
+            ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(getActivity() != null)
+            ((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
 }

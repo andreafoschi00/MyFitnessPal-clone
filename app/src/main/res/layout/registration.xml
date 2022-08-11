@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include
+        <!-- <include
             android:id="@+id/signin_topbar_imported"
             layout="@layout/registration_topbar"
             app:layout_constraintBottom_toTopOf="@+id/label_gender"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" /> -->
 
         <TextView
             android:id="@+id/label_gender"
@@ -31,7 +31,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signin_topbar_imported" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
             android:id="@+id/gender_group"
@@ -211,7 +211,7 @@
             app:layout_constraintTop_toBottomOf="@id/email_edittext" />
 
         <Button
-            android:id="@+id/register_button"
+            android:id="@+id/signin_button"
             style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
