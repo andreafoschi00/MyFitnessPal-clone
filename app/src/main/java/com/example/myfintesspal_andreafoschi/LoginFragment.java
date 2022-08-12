@@ -1,24 +1,30 @@
 package com.example.myfintesspal_andreafoschi;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.myfintesspal_andreafoschi.ViewModel.ListViewModel;
+
 
 public class LoginFragment extends Fragment {
+
+    private ListViewModel viewModel;
+
+    private EditText email;
+    private EditText psw;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,9 +41,39 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Activity activity = getActivity();
+        FragmentActivity activity = getActivity();
         if(activity != null){
             Utilities.setUpToolbar((AppCompatActivity) activity, getString(R.string.log_in));
+
+            email = view.findViewById(R.id.email_placetext);
+            psw = view.findViewById(R.id.psw_placetext);
+
+            view.findViewById(R.id.try_login_button).setOnClickListener(view1 -> {
+                viewModel = new ViewModelProvider(activity).get(ListViewModel.class);
+                viewModel.getProfilesInfo().observe(activity, profileInformation -> {
+                    try{
+                        if(email.getText().length() != 0 && psw.getText().length() != 0){
+                            boolean found = false;
+                            for (ProfileInformation profile: profileInformation) {
+                                if(profile != null &&
+                                        profile.getEmail().equals(email.getText().toString()) &&
+                                        profile.getPassword().equals(psw.getText().toString())) {
+                                    Toast.makeText(activity, R.string.login_success, Toast.LENGTH_SHORT).show();
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if(!found){
+                                Toast.makeText(activity, R.string.login_fail, Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(activity, R.string.insert_email_psw, Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            });
         }
     }
 

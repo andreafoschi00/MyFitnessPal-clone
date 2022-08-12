@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dark_blue">#001449</color>
-    <color name="blue">#012677</color>
-    <color name="dark_cyan">#005bc5</color>
-    <color name="cyan">#00b4fc</color>
-    <color name="light_blue">#17f9ff</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#6a1b9a</color>
+    <color name="primary_dark">#38006b</color>
+    <color name="primary_light">#9c4dcc</color>
+    <color name="secondary">#e1bee7</color>
+    <color name="secondary_light">#fff1ff</color>
+    <color name="secondary_dark">#af8eb5</color>
 </resources>

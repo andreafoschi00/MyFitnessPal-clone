@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyFitnessPal</string>
-    <string name="myfitnesspal">myfitnesspal</string>
+    <string name="my_fitness_pal">myfitnesspal</string>
     <string name="register">Sign in</string>
     <string name="log_in">Log in</string>
     <string name="back">Back</string>
@@ -18,4 +18,12 @@
     <string name="e_mail">E-mail</string>
     <string name="username">Username</string>
     <string name="page_title">MyFitnessPal</string>
+    <string name="signup_error">Please fill all fields with correct values.</string>
+    <string name="create_confirm1">Account created! Your daily goal is </string>
+    <string name="create_confirm2"> kcal. Do you want to log in now?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="insert_email_psw">Insert email and password</string>
+    <string name="login_success">Login successful!</string>
+    <string name="login_fail">Username or password incorrect.</string>
 </resources>

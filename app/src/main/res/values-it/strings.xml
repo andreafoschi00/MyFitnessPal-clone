@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyFitnessPal</string>
-    <string name="myfitnesspal">myfitnesspal</string>
+    <string name="my_fitness_pal">myfitnesspal</string>
     <string name="register">Registrati</string>
     <string name="log_in">Accedi</string>
     <string name="back">Indietro</string>
@@ -17,4 +17,13 @@
     <string name="_0_kg">0 kg</string>
     <string name="e_mail">E-mail</string>
     <string name="username">Username</string>
+    <string name="page_title">MyFitnessPal</string>
+    <string name="signup_error">Riempire tutti i campi con i valori corretti.</string>
+    <string name="create_confirm1">Account creato! Il tuo obiettivo giornaliero è di</string>
+    <string name="create_confirm2">kcal. Vuoi effettuare l\'accesso ora?</string>
+    <string name="yes">Sì</string>
+    <string name="no">No</string>
+    <string name="insert_email_psw">Inserire email e password</string>
+    <string name="login_success">Accesso riuscito!</string>
+    <string name="login_fail">Username o password errati.</string>
 </resources>

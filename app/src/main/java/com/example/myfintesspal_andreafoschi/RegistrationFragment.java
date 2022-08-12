@@ -2,6 +2,9 @@ package com.example.myfintesspal_andreafoschi;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
@@ -10,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,8 +27,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.example.myfintesspal_andreafoschi.ViewModel.AddViewModel;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class RegistrationFragment extends Fragment {
@@ -36,6 +45,8 @@ public class RegistrationFragment extends Fragment {
     private EditText username;
     private EditText email;
     private EditText password;
+
+    final Calendar calendar = Calendar.getInstance();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +71,24 @@ public class RegistrationFragment extends Fragment {
 
             AddViewModel addViewModel = new ViewModelProvider((ViewModelStoreOwner) activity)
                     .get(AddViewModel.class);
+
+            birth_date = getActivity().findViewById(R.id.birth_edittext);
+            DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                    calendar.set(Calendar.YEAR, year);
+                    calendar.set(Calendar.MONTH, month);
+                    calendar.set(Calendar.DAY_OF_MONTH, day);
+                    updateLabel();
+                }
+            };
+            birth_date.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new DatePickerDialog(getActivity(), date, calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+                }
+            });
 
             genderGroup = (RadioGroup) view.findViewById(R.id.gender_group);
             birth_date = view.findViewById(R.id.birth_edittext);
@@ -96,9 +125,35 @@ public class RegistrationFragment extends Fragment {
                                     username.getText().toString(), email.getText().toString(),
                                     password.getText().toString()));
 
+                            int goal = ProfileInformation.calculateGoal(gender,
+                                    birth_date.getText().toString(),
+                                    Integer.parseInt(height.getText().toString()),
+                                    Integer.parseInt(weight.getText().toString()));
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                            builder.setMessage(getString(R.string.create_confirm1) + " " + goal +
+                                    " " + getString(R.string.create_confirm2))
+                                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            Utilities.insertFragment((AppCompatActivity) activity,
+                                                    new LoginFragment(),
+                                                    LoginFragment.class.getSimpleName());
+                                        }
+                                    })
+                                    .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.cancel();
+                                        }
+                                    })
+                                    .create()
+                                    .show();
+
                             ((AppCompatActivity) activity).getSupportFragmentManager().popBackStack();
                         } else {
-                            Toast.makeText(activity, "Error on params.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, R.string.signup_error,
+                                    Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -108,15 +163,21 @@ public class RegistrationFragment extends Fragment {
         }
     }
 
-    private boolean patternMatches(Editable text) {
-        return Pattern.compile("^(.+)@(\\S+)$")
-                .matcher(text)
-                .matches();
-    }
-
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.top_bar_app, menu);
+    }
+
+    private boolean patternMatches(Editable text) {
+        return text.length() > 0 && Pattern.compile("^(.+)@(\\S+)$")
+                .matcher(text)
+                .matches();
+    }
+
+    private void updateLabel() {
+        String format = "dd/MM/yyyy";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format, Locale.ITALY);
+        birth_date.setText(dateFormat.format(calendar.getTime()));
     }
 }
