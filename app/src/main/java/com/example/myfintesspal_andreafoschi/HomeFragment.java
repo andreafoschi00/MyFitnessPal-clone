@@ -1,11 +1,8 @@
 package com.example.myfintesspal_andreafoschi;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -40,14 +37,14 @@ public class HomeFragment extends Fragment {
             loginButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    Utilities.insertFragment((AppCompatActivity) activity, new LoginFragment(), LoginFragment.class.getSimpleName());
+                    Utilities.insertMainActivityFragment((AppCompatActivity) activity, new LoginFragment(), LoginFragment.class.getSimpleName());
                 }
             });
 
             registerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Utilities.insertFragment((AppCompatActivity) activity, new RegistrationFragment(), RegistrationFragment.class.getSimpleName());
+                    Utilities.insertMainActivityFragment((AppCompatActivity) activity, new RegistrationFragment(), RegistrationFragment.class.getSimpleName());
                 }
             });
 

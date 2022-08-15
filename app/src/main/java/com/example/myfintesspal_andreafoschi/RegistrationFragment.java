@@ -7,7 +7,6 @@ import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -27,12 +25,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.example.myfintesspal_andreafoschi.ViewModel.AddViewModel;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -136,7 +131,7 @@ public class RegistrationFragment extends Fragment {
                                     .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                            Utilities.insertFragment((AppCompatActivity) activity,
+                                            Utilities.insertMainActivityFragment((AppCompatActivity) activity,
                                                     new LoginFragment(),
                                                     LoginFragment.class.getSimpleName());
                                         }

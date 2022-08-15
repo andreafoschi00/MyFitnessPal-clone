@@ -9,14 +9,28 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class Utilities {
 
-    static void insertFragment(AppCompatActivity activity, Fragment fragment, String tag){
+    static void insertMainActivityFragment(AppCompatActivity activity, Fragment fragment, String tag){
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
 
         transaction.replace(R.id.fragment_container_view, fragment, tag);
 
         if(!(fragment instanceof  HomeFragment)){
+            transaction.addToBackStack(tag);
+        }
+
+        transaction.commit();
+    }
+
+    static void insertDashboardActivityFragment(AppCompatActivity activity, Fragment fragment, String tag) {
+        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.dashboard_container_view, fragment, tag);
+
+        if(!(fragment instanceof  DashboardFragment)){
             transaction.addToBackStack(tag);
         }
 

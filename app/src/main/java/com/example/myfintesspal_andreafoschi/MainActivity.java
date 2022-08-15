@@ -1,12 +1,9 @@
 package com.example.myfintesspal_andreafoschi;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if(savedInstanceState == null)
-            Utilities.insertFragment(this, new HomeFragment(), HomeFragment.class.getSimpleName());
+            Utilities.insertMainActivityFragment(this, new HomeFragment(), HomeFragment.class.getSimpleName());
     }
 
     @Override

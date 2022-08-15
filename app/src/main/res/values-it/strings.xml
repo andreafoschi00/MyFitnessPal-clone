@@ -26,4 +26,12 @@
     <string name="insert_email_psw">Inserire email e password</string>
     <string name="login_success">Accesso riuscito!</string>
     <string name="login_fail">Username o password errati.</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="diary">Diario</string>
+    <string name="shopping_list">Lista della spesa</string>
+    <string name="profile">Profilo</string>
+    <string name="calories">Calorie</string>
+    <string name="left_goal_foods_exercise">Rimanenti = Obiettivo - Alimenti + Esercizio</string>
+    <string name="progress">Progressi</string>
+    <string name="last_30_days">Ultimi 30 giorni</string>
 </resources>

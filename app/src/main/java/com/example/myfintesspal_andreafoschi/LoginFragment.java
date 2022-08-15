@@ -1,5 +1,6 @@
 package com.example.myfintesspal_andreafoschi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -60,6 +61,8 @@ public class LoginFragment extends Fragment {
                                         profile.getPassword().equals(psw.getText().toString())) {
                                     Toast.makeText(activity, R.string.login_success, Toast.LENGTH_SHORT).show();
                                     found = true;
+                                    Intent intent = new Intent(getContext(), DashboardActivity.class);
+                                    this.startActivity(intent);
                                     break;
                                 }
                             }
