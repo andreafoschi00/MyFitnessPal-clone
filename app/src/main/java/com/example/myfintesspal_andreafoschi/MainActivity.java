@@ -2,6 +2,9 @@ package com.example.myfintesspal_andreafoschi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -12,7 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(savedInstanceState == null)
+        SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+        String email = sharedPreferences.getString("email", "default");
+
+        if(!email.equals("default")) {
+            Intent intent = new Intent(this, DashboardActivity.class);
+            this.startActivity(intent);
+            this.finish();
+        } else if(savedInstanceState == null)
             Utilities.insertMainActivityFragment(this, new HomeFragment(), HomeFragment.class.getSimpleName());
     }
 

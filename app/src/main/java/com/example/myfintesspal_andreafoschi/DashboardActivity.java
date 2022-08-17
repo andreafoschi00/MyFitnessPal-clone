@@ -1,7 +1,6 @@
 package com.example.myfintesspal_andreafoschi;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,5 +55,14 @@ public class DashboardActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_bar_app, menu);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(navigationView.getSelectedItemId() == R.id.page_dashboard) {
+            finish();
+        }
+        navigationView.setSelectedItemId(R.id.page_dashboard);
     }
 }
