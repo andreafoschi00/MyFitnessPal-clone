@@ -15,4 +15,6 @@
     <color name="snack">#6e0c0f</color>
     <color name="dinner">#9a05f7</color>
     <color name="training">#cf630a</color>
+
+    <color name="logout">#ad1909</color>
 </resources>

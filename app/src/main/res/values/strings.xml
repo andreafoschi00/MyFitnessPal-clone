@@ -34,4 +34,23 @@
     <string name="left_goal_foods_exercise">Left = Goal - Foods + Exercise</string>
     <string name="progress">Progress</string>
     <string name="last_30_days">Last 30 days</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="zero">0</string>
+    <string name="add_breakfast">Add breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="add_lunch">Add lunch</string>
+    <string name="snack">Snack</string>
+    <string name="add_snack">Add snack</string>
+    <string name="dinner">Dinner</string>
+    <string name="add_dinner">Add dinner</string>
+    <string name="add_training">Add training</string>
+    <string name="training">Training</string>
+    <string name="calories_left">Calories left:</string>
+    <string name="title">Title</string>
+    <string name="apply_changes">Apply changes</string>
+    <string name="add_new_item">Add new item</string>
+    <string name="profile_image">Profile image</string>
+    <string name="update_weight">Update weight</string>
+    <string name="change_password">Change password</string>
+    <string name="log_out">Log out</string>
 </resources>

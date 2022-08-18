@@ -34,4 +34,23 @@
     <string name="left_goal_foods_exercise">Rimanenti = Obiettivo - Alimenti + Esercizio</string>
     <string name="progress">Progressi</string>
     <string name="last_30_days">Ultimi 30 giorni</string>
+    <string name="breakfast">Colazione</string>
+    <string name="zero">0</string>
+    <string name="add_breakfast">Aggiungi colazione</string>
+    <string name="lunch">Pranzo</string>
+    <string name="add_lunch">Aggiungi pranzo</string>
+    <string name="snack">Merenda</string>
+    <string name="add_snack">Aggiungi merenda</string>
+    <string name="dinner">Cena</string>
+    <string name="add_dinner">Aggiungi cena</string>
+    <string name="add_training">Aggiungi allenamento</string>
+    <string name="training">Allenamento</string>
+    <string name="calories_left">Calorie rimanenti:</string>
+    <string name="title">Titolo</string>
+    <string name="apply_changes">Salva modifiche</string>
+    <string name="add_new_item">Nuovo elemento</string>
+    <string name="profile_image">Immagine del profilo</string>
+    <string name="update_weight">Aggiorna peso</string>
+    <string name="change_password">Modifica password</string>
+    <string name="log_out">Disconnettiti</string>
 </resources>

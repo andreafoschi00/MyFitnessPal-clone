@@ -48,8 +48,8 @@
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/calories_chart"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="225sp"
+            android:layout_height="225sp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toStartOf="@id/guideline"
@@ -61,6 +61,7 @@
             android:layout_height="0dp"
             android:layout_margin="20dp"
             android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+            android:text="@string/zero"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:drawableStartCompat="@drawable/ic_baseline_flag_24"
@@ -76,6 +77,7 @@
             android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
             android:textColor="@color/white"
             android:textSize="18sp"
+            android:text="@string/zero"
             app:drawableStartCompat="@drawable/ic_baseline_food_bank_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
@@ -89,6 +91,7 @@
             android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
             android:textColor="@color/white"
             android:textSize="18sp"
+            android:text="@string/zero"
             app:drawableStartCompat="@drawable/ic_baseline_local_fire_department_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
@@ -148,6 +151,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/weight_desc" />
+
+        <View android:layout_width="match_parent"
+            android:layout_height="60sp"
+            app:layout_constraintTop_toBottomOf="@id/weight_chart"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
