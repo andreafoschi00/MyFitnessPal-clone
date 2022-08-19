@@ -53,4 +53,13 @@
     <string name="update_weight">Update weight</string>
     <string name="change_password">Change password</string>
     <string name="log_out">Log out</string>
+    <string name="add_message">Do you prefer to use the camera or enter manually?</string>
+    <string name="use_camera">Use camera</string>
+    <string name="enter_manually">Enter manually</string>
+    <string name="insert_cal">Insert number of calories</string>
+    <string name="example">Example: 100</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_null">You must insert a number</string>
+    <string name="add_confirm">Calories added</string>
 </resources>

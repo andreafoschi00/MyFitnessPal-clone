@@ -21,4 +21,12 @@ public interface ProfileInformationDAO {
     @Transaction
     @Query("SELECT * FROM account ORDER BY account_id DESC")
     LiveData<List<ProfileInformation>> getAllProfilesCredentials() throws ParseException;
+
+    @Transaction
+    @Query("SELECT account_id FROM account WHERE account_email = :email")
+    int getAccountIDFromMail(String email);
+
+    @Transaction
+    @Query("SELECT account_daygoal FROM account WHERE account_email = :email")
+    int getGoalFromMail(String email);
 }

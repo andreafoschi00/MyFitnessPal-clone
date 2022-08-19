@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -62,9 +63,11 @@ public class LoginFragment extends Fragment {
                                         profile.getEmail().equals(email.getText().toString()) &&
                                         profile.getPassword().equals(psw.getText().toString())) {
                                     Toast.makeText(activity, R.string.login_success, Toast.LENGTH_SHORT).show();
-                                    SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+                                    SharedPreferences sharedPreferences = activity.getSharedPreferences("MY_PREF", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("email", profile.getEmail());
+                                    editor.putString("id", String.valueOf(profile.getId()));
+                                    editor.putString("goal", String.valueOf(profile.getDayGoal()));
                                     editor.apply();
                                     found = true;
                                     Intent intent = new Intent(getContext(), DashboardActivity.class);

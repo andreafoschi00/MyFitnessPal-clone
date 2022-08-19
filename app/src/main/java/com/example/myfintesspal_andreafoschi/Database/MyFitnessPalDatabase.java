@@ -6,26 +6,28 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.myfintesspal_andreafoschi.ProfileDailyCalories;
 import com.example.myfintesspal_andreafoschi.ProfileInformation;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {ProfileInformation.class}, version = 2)
-public abstract class ProfileInformationDatabase extends RoomDatabase {
+@Database(entities = {ProfileInformation.class, ProfileDailyCalories.class}, version = 3)
+public abstract class MyFitnessPalDatabase extends RoomDatabase {
 
     public abstract ProfileInformationDAO profileInformationDAO();
+    public abstract ProfileDailyCaloriesDAO profileDailyCaloriesDAO();
 
-    private static volatile ProfileInformationDatabase INSTANCE;
+    private static volatile MyFitnessPalDatabase INSTANCE;
 
     static final ExecutorService executor = Executors.newFixedThreadPool(4);
 
-    static ProfileInformationDatabase getDatabase(final Context context){
+    static MyFitnessPalDatabase getDatabase(final Context context){
         if(INSTANCE == null){
-            synchronized (ProfileInformationDatabase.class){
+            synchronized (MyFitnessPalDatabase.class){
                 if(INSTANCE == null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ProfileInformationDatabase.class, "myfitnesspal_database")
+                            MyFitnessPalDatabase.class, "myfitnesspal_database")
                             .fallbackToDestructiveMigration()
                             .build();
                 }

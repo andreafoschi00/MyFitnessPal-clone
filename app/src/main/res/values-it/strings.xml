@@ -53,4 +53,13 @@
     <string name="update_weight">Aggiorna peso</string>
     <string name="change_password">Modifica password</string>
     <string name="log_out">Disconnettiti</string>
+    <string name="add_message">Preferisci utilizzare la camera o inserire manualmente?</string>
+    <string name="use_camera">Camera</string>
+    <string name="enter_manually">Manualmente</string>
+    <string name="insert_cal">Inserisci il numero di calorie</string>
+    <string name="example">Esempio: 100</string>
+    <string name="add">Aggiungi</string>
+    <string name="cancel">Annulla</string>
+    <string name="error_null">Devi inserire un numero</string>
+    <string name="add_confirm">Calorie aggiunte</string>
 </resources>

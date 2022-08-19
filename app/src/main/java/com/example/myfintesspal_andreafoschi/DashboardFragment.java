@@ -110,7 +110,6 @@ public class DashboardFragment extends Fragment {
         entries.add(new PieEntry(500, "Snack"));
         entries.add(new PieEntry(700, "Dinner"));
         entries.add(new PieEntry(500, "Training"));
-        entries.add(new PieEntry(400, "Left"));
         PieDataSet set = new PieDataSet(entries, "Daily calories");
         set.setDrawIcons(false);
         set.setSliceSpace(2f);
@@ -122,12 +121,15 @@ public class DashboardFragment extends Fragment {
         data.setValueTextSize(18f);
         data.setValueTextColor(Color.WHITE);
         pieChart.setData(data);
+        pieChart.setRotationEnabled(false);
+        pieChart.setTouchEnabled(false);
         pieChart.getDescription().setEnabled(false);
         pieChart.getLegend().setEnabled(false);
         pieChart.setHoleColor(Color.TRANSPARENT);
         pieChart.setHoleRadius(70);
+        pieChart.setCenterText("400 left");
         pieChart.setCenterTextColor(Color.WHITE);
-        pieChart.setCenterTextSize(30f);
+        pieChart.setCenterTextSize(22f);
         pieChart.setCenterTextTypeface(Typeface.DEFAULT_BOLD);
         pieChart.invalidate(); // refresh
 
