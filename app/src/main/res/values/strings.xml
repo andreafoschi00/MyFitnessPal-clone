@@ -62,4 +62,13 @@
     <string name="cancel">Cancel</string>
     <string name="error_null">You must insert a number</string>
     <string name="add_confirm">Calories added</string>
+    <string name="title_training">Choose type of training</string>
+    <string name="run">Run</string>
+    <string name="cycling">Cycling</string>
+    <string name="cardio">Cardio</string>
+    <string name="walk">Walk</string>
+    <string name="swim">Swim</string>
+    <string name="ski">Skiing</string>
+    <string name="next">Next</string>
+    <string name="training_added">Training added</string>
 </resources>

@@ -29,6 +29,7 @@ import com.example.myfintesspal_andreafoschi.ViewModel.ListViewModel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 public class DiaryFragment extends Fragment{
 
@@ -39,8 +40,9 @@ public class DiaryFragment extends Fragment{
 
     private int id;
     private int goal;
-
     private int caloriesLeft;
+
+    private String trainingSelected;
 
     private TextView breakfast;
     private TextView lunch;
@@ -48,6 +50,7 @@ public class DiaryFragment extends Fragment{
     private TextView dinner;
     private TextView training;
     private TextView left;
+    private TextView trainingIcon;
 
     EditText txt;
 
@@ -74,6 +77,7 @@ public class DiaryFragment extends Fragment{
             dinner = view.findViewById(R.id.dinner_cal);
             training = view.findViewById(R.id.training_cal);
             left = view.findViewById(R.id.goal_cal);
+            trainingIcon = view.findViewById(R.id.training_icon);
             Utilities.setUpToolbar((AppCompatActivity) activity, getString(R.string.diary));
             SharedPreferences sharedPreferences = activity.getSharedPreferences("MY_PREF", Context.MODE_PRIVATE);
             String pref_id = sharedPreferences.getString("id", "default");
@@ -289,32 +293,97 @@ public class DiaryFragment extends Fragment{
         view.findViewById(R.id.add_training).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
-                final EditText placeCalories = new EditText(getContext());
-                placeCalories.setHint(R.string.example);
-                placeCalories.setInputType(InputType.TYPE_CLASS_NUMBER);
-                builder2.setTitle(R.string.insert_cal);
-                builder2.setView(placeCalories);
-                LinearLayout layoutName = new LinearLayout(getContext());
-                layoutName.setOrientation(LinearLayout.VERTICAL);
-                layoutName.addView(placeCalories);
-                builder2.setView(layoutName);
-                builder2.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
+                final String[] listItems = new String[]{getString(R.string.run),
+                        getString(R.string.cycling), getString(R.string.cardio),
+                        getString(R.string.walk), getString(R.string.swim),
+                        getString(R.string.ski)};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(R.string.title_training);
+                builder.setSingleChoiceItems(listItems, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        txt = placeCalories;
-                        collectInputTraining();
+                        trainingSelected = listItems[i];
                     }
-                });
-                builder2.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                })
+                .setPositiveButton(getString(R.string.next), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
+                        final EditText placeCalories = new EditText(getContext());
+                        placeCalories.setHint(R.string.example);
+                        placeCalories.setInputType(InputType.TYPE_CLASS_NUMBER);
+                        builder2.setTitle(R.string.insert_cal);
+                        builder2.setView(placeCalories);
+                        LinearLayout layoutName = new LinearLayout(getContext());
+                        layoutName.setOrientation(LinearLayout.VERTICAL);
+                        layoutName.addView(placeCalories);
+                        builder2.setView(layoutName);
+                        builder2.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                txt = placeCalories;
+                                collectInputTraining();
+                            }
+                        });
+                        builder2.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                        builder2.setCancelable(false);
+                        builder2.show();
+                    }
+                })
+                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
                     }
-                });
-                builder2.show();
+                })
+                .setCancelable(false)
+                .show();
             }
         });
+    }
+
+    private void updateLogo(String logo){
+        switch (logo){
+            case "Run":
+            case "Corsa":
+                trainingIcon.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_directions_run_24, 0, 0, 0);
+                break;
+            case "Cycling":
+            case "Ciclismo":
+                trainingIcon.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_directions_bike_24, 0, 0, 0);
+                break;
+            case "Cardio":
+            case "Cardiovascolare":
+                trainingIcon.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_fitness_center_24, 0, 0, 0);
+                break;
+            case "Walk":
+            case "Camminata":
+                trainingIcon.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_directions_walk_24, 0, 0, 0);
+                break;
+            case "Swim":
+            case "Nuoto":
+                trainingIcon.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_pool_24, 0, 0, 0);
+                break;
+            case "Skiing":
+            case "Sciata":
+                trainingIcon.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_downhill_skiing_24, 0, 0, 0);
+                break;
+            case "clear":
+                trainingIcon.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                break;
+            default:
+                break;
+        }
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MY_PREF", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(TODAY+"-training", logo);
+        editor.apply();
     }
 
     private void updateView(int breakfast_cal, int lunch_cal, int snack_cal, int dinner_cal,
@@ -325,6 +394,11 @@ public class DiaryFragment extends Fragment{
         dinner.setText(String.valueOf(dinner_cal));
         training.setText(String.valueOf(training_cal));
         left.setText(String.valueOf(daily_cal_left));
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MY_PREF", Context.MODE_PRIVATE);
+        String logo = sharedPreferences.getString(TODAY+"-training", "null");
+        if(!logo.equals("null")){
+            updateLogo(logo);
+        }
     }
 
     private void collectInputBreakfast(){
@@ -511,6 +585,11 @@ public class DiaryFragment extends Fragment{
                 }
             });
         }
+        if(calories == 0){
+            updateLogo("clear");
+        } else {
+            updateLogo(trainingSelected);
+        }
         if(oldCalories >= calories){
             caloriesLeft -= (oldCalories - calories);
         }
@@ -519,6 +598,6 @@ public class DiaryFragment extends Fragment{
         }
         addViewModel.updateCaloriesLeft(caloriesLeft, id, TODAY);
         left.setText(String.valueOf(caloriesLeft));
-        Toast.makeText(activity, R.string.add_confirm, Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, R.string.training_added, Toast.LENGTH_SHORT).show();
     }
 }

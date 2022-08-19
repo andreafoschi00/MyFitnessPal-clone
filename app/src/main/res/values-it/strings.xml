@@ -62,4 +62,13 @@
     <string name="cancel">Annulla</string>
     <string name="error_null">Devi inserire un numero</string>
     <string name="add_confirm">Calorie aggiunte</string>
+    <string name="title_training">Seleziona il tipo di allenamento</string>
+    <string name="run">Corsa</string>
+    <string name="cycling">Ciclismo</string>
+    <string name="cardio">Cardiovascolare</string>
+    <string name="walk">Camminata</string>
+    <string name="swim">Nuoto</string>
+    <string name="ski">Sciata</string>
+    <string name="next">Avanti</string>
+    <string name="training_added">Allenamento aggiunto</string>
 </resources>
