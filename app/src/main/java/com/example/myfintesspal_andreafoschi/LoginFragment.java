@@ -68,6 +68,8 @@ public class LoginFragment extends Fragment {
                                     editor.putString("email", profile.getEmail());
                                     editor.putString("id", String.valueOf(profile.getId()));
                                     editor.putString("goal", String.valueOf(profile.getDayGoal()));
+                                    editor.putString("weight", String.valueOf(profile.getWeight()));
+                                    editor.putString("usr", profile.getUsername());
                                     editor.apply();
                                     found = true;
                                     Intent intent = new Intent(getContext(), DashboardActivity.class);

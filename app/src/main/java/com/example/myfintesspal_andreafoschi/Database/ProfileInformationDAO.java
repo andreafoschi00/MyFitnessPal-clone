@@ -29,4 +29,8 @@ public interface ProfileInformationDAO {
     @Transaction
     @Query("SELECT account_daygoal FROM account WHERE account_email = :email")
     int getGoalFromMail(String email);
+
+    @Transaction
+    @Query("UPDATE account SET account_password = :newPassword WHERE account_id = :id")
+    void updatePassword(String newPassword, int id);
 }

@@ -71,4 +71,15 @@
     <string name="ski">Skiing</string>
     <string name="next">Next</string>
     <string name="training_added">Training added</string>
+    <string name="left">left</string>
+    <string name="excess">In excess of</string>
+    <string name="message_weight">Please insert your actual weight</string>
+    <string name="update">Update</string>
+    <string name="weight_updated">Weight updated.</string>
+    <string name="insert_password">Please insert a new password</string>
+    <string name="psw_hint">Must be at least 10 characters</string>
+    <string name="error_psw1">You must insert a string</string>
+    <string name="error_psw2">Password must be at least 10 characters</string>
+    <string name="psw_updated">Password updated!</string>
+    <string name="logout_msg">Are you sure?</string>
 </resources>

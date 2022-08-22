@@ -25,30 +25,30 @@ public class DashboardActivity extends AppCompatActivity {
         if(savedInstanceState == null) {
             Utilities.insertDashboardActivityFragment(this, new DashboardFragment(),
                     DashboardFragment.class.getSimpleName());
-            AppCompatActivity activity = this;
-            navigationView = findViewById(R.id.bottom_bar);
-            navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-                @SuppressLint("NonConstantResourceId")
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    switch (item.getItemId()){
-                        case R.id.page_dashboard:
-                            Utilities.insertDashboardActivityFragment(activity, new DashboardFragment(), DashboardFragment.class.getSimpleName());
-                            return true;
-                        case R.id.page_diary:
-                            Utilities.insertDashboardActivityFragment(activity, new DiaryFragment(), DiaryFragment.class.getSimpleName());
-                            return true;
-                        case R.id.page_list:
-                            Utilities.insertDashboardActivityFragment(activity, new ShoppingListFragment(), ShoppingListFragment.class.getSimpleName());
-                            return true;
-                        case R.id.page_profile:
-                            Utilities.insertDashboardActivityFragment(activity, new ProfileFragment(), ProfileFragment.class.getSimpleName());
-                            return true;
-                    }
-                    return false;
-                }
-            });
         }
+        AppCompatActivity activity = this;
+        navigationView = findViewById(R.id.bottom_bar);
+        navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.page_dashboard:
+                        Utilities.insertDashboardActivityFragment(activity, new DashboardFragment(), DashboardFragment.class.getSimpleName());
+                        return true;
+                    case R.id.page_diary:
+                        Utilities.insertDashboardActivityFragment(activity, new DiaryFragment(), DiaryFragment.class.getSimpleName());
+                        return true;
+                    case R.id.page_list:
+                        Utilities.insertDashboardActivityFragment(activity, new ShoppingListFragment(), ShoppingListFragment.class.getSimpleName());
+                        return true;
+                    case R.id.page_profile:
+                        Utilities.insertDashboardActivityFragment(activity, new ProfileFragment(), ProfileFragment.class.getSimpleName());
+                        return true;
+                }
+            return false;
+            }
+        });
     }
 
     @Override

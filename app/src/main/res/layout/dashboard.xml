@@ -48,8 +48,8 @@
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/calories_chart"
-            android:layout_width="225sp"
-            android:layout_height="225sp"
+            android:layout_width="230sp"
+            android:layout_height="230sp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toStartOf="@id/guideline"

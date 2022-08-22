@@ -8,15 +8,17 @@ import androidx.room.RoomDatabase;
 
 import com.example.myfintesspal_andreafoschi.ProfileDailyCalories;
 import com.example.myfintesspal_andreafoschi.ProfileInformation;
+import com.example.myfintesspal_andreafoschi.ProfileWeight;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {ProfileInformation.class, ProfileDailyCalories.class}, version = 3)
+@Database(entities = {ProfileInformation.class, ProfileDailyCalories.class, ProfileWeight.class}, version = 4)
 public abstract class MyFitnessPalDatabase extends RoomDatabase {
 
     public abstract ProfileInformationDAO profileInformationDAO();
     public abstract ProfileDailyCaloriesDAO profileDailyCaloriesDAO();
+    public abstract ProfileWeightDAO profileWeightDAO();
 
     private static volatile MyFitnessPalDatabase INSTANCE;
 

@@ -52,7 +52,7 @@ public class DiaryFragment extends Fragment{
     private TextView left;
     private TextView trainingIcon;
 
-    EditText txt;
+    private EditText txt;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -93,7 +93,7 @@ public class DiaryFragment extends Fragment{
                 try{
                     boolean found = false;
                     for(ProfileDailyCalories cal : calories){
-                        if(cal.getId() == id && cal.getDate().equals(TODAY)){
+                        if(cal.getAccount_id() == id && cal.getDate().equals(TODAY)){
                             found = true;
                             updateView(cal.getBreakfast_cal(), cal.getLunch_cal(), cal.getSnack_cal(),
                                     cal.getDinner_cal(), cal.getTraining_cal(), cal.getDaily_cal_left());
@@ -419,7 +419,7 @@ public class DiaryFragment extends Fragment{
             viewModel.getCaloriesInfo().observe(getActivity(), calories2 -> {
                 try{
                     for(ProfileDailyCalories cal : calories2){
-                        if(cal.getId() == id && cal.getDate().equals(TODAY)){
+                        if(cal.getAccount_id() == id && cal.getDate().equals(TODAY)){
                             caloriesLeft = cal.getDaily_cal_left();
                             break;
                         }
@@ -458,7 +458,7 @@ public class DiaryFragment extends Fragment{
             viewModel.getCaloriesInfo().observe(getActivity(), calories2 -> {
                 try{
                     for(ProfileDailyCalories cal : calories2){
-                        if(cal.getId() == id && cal.getDate().equals(TODAY)){
+                        if(cal.getAccount_id() == id && cal.getDate().equals(TODAY)){
                             caloriesLeft = cal.getDaily_cal_left();
                             break;
                         }
@@ -497,7 +497,7 @@ public class DiaryFragment extends Fragment{
             viewModel.getCaloriesInfo().observe(getActivity(), calories2 -> {
                 try{
                     for(ProfileDailyCalories cal : calories2){
-                        if(cal.getId() == id && cal.getDate().equals(TODAY)){
+                        if(cal.getAccount_id() == id && cal.getDate().equals(TODAY)){
                             caloriesLeft = cal.getDaily_cal_left();
                             break;
                         }
@@ -536,7 +536,7 @@ public class DiaryFragment extends Fragment{
             viewModel.getCaloriesInfo().observe(getActivity(), calories2 -> {
                 try{
                     for(ProfileDailyCalories cal : calories2){
-                        if(cal.getId() == id && cal.getDate().equals(TODAY)){
+                        if(cal.getAccount_id() == id && cal.getDate().equals(TODAY)){
                             caloriesLeft = cal.getDaily_cal_left();
                             break;
                         }
@@ -575,7 +575,7 @@ public class DiaryFragment extends Fragment{
             viewModel.getCaloriesInfo().observe(getActivity(), calories2 -> {
                 try{
                     for(ProfileDailyCalories cal : calories2){
-                        if(cal.getId() == id && cal.getDate().equals(TODAY)){
+                        if(cal.getAccount_id() == id && cal.getDate().equals(TODAY)){
                             caloriesLeft = cal.getDaily_cal_left();
                             break;
                         }

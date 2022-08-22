@@ -50,4 +50,11 @@ public class ProfileInformationRepository {
         });
         return profileGoal;
     }
+
+    public void updatePassword(String newPassword, int id){
+        MyFitnessPalDatabase.executor.execute(new Runnable() {
+            @Override
+            public void run() { profileInformationDAO.updatePassword(newPassword, id); }
+        });
+    }
 }

@@ -71,4 +71,15 @@
     <string name="ski">Sciata</string>
     <string name="next">Avanti</string>
     <string name="training_added">Allenamento aggiunto</string>
+    <string name="left">rimanenti</string>
+    <string name="excess">In eccesso di</string>
+    <string name="message_weight">Inserisci il tuo peso attuale</string>
+    <string name="update">Aggiorna</string>
+    <string name="weight_updated">Peso aggiornato.</string>
+    <string name="insert_password">Inserire una nuova password</string>
+    <string name="psw_hint">Lunghezza minima 10 caratteri</string>
+    <string name="error_psw1">Devi inserire una stringa</string>
+    <string name="error_psw2">La password dev\'essere lunga almeno 10 caratteri</string>
+    <string name="psw_updated">Password aggiornata!</string>
+    <string name="logout_msg">Sei sicuro?</string>
 </resources>
