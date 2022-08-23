@@ -13,7 +13,7 @@ import com.example.myfintesspal_andreafoschi.Tables.ProfileWeight;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {ProfileInformation.class, ProfileDailyCalories.class, ProfileWeight.class}, version = 4)
+@Database(entities = {ProfileInformation.class, ProfileDailyCalories.class, ProfileWeight.class}, version = 7)
 public abstract class MyFitnessPalDatabase extends RoomDatabase {
 
     public abstract ProfileInformationDAO profileInformationDAO();

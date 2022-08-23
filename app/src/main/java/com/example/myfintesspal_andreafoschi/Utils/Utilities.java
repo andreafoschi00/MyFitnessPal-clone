@@ -10,7 +10,13 @@ import com.example.myfintesspal_andreafoschi.Fragments.DashboardFragment;
 import com.example.myfintesspal_andreafoschi.Fragments.HomeFragment;
 import com.example.myfintesspal_andreafoschi.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Utilities {
+
+    public static final String TODAY = new SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(new Date());
 
     public static void insertMainActivityFragment(AppCompatActivity activity, Fragment fragment, String tag){
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();

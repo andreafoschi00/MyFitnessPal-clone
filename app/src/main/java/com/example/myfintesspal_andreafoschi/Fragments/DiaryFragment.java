@@ -1,5 +1,7 @@
 package com.example.myfintesspal_andreafoschi.Fragments;
 
+import static com.example.myfintesspal_andreafoschi.Utils.Utilities.TODAY;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,8 +36,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DiaryFragment extends Fragment{
-
-    private static final String TODAY = new SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(new Date());
 
     private AddViewModel addViewModel;
     private ListViewModel viewModel;

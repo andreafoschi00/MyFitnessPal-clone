@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 4,
-    "identityHash": "e32f61ae9e5279d411b1b1c200f94258",
+    "version": 7,
+    "identityHash": "9b29be2c22f6ea8d327388dde3da1565",
     "entities": [
       {
         "tableName": "account",
@@ -69,7 +69,17 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_account_account_email",
+            "unique": true,
+            "columnNames": [
+              "account_email"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_account_account_email` ON `${TABLE_NAME}` (`account_email`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
@@ -139,13 +149,14 @@
         },
         "indices": [
           {
-            "name": "index_calories_profile_id",
+            "name": "index_calories_date_profile_id",
             "unique": true,
             "columnNames": [
+              "date",
               "profile_id"
             ],
             "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_calories_profile_id` ON `${TABLE_NAME}` (`profile_id`)"
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_calories_date_profile_id` ON `${TABLE_NAME}` (`date`, `profile_id`)"
           }
         ],
         "foreignKeys": [
@@ -197,7 +208,18 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_weight_date_profile_id",
+            "unique": true,
+            "columnNames": [
+              "date",
+              "profile_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_weight_date_profile_id` ON `${TABLE_NAME}` (`date`, `profile_id`)"
+          }
+        ],
         "foreignKeys": [
           {
             "table": "account",
@@ -216,7 +238,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e32f61ae9e5279d411b1b1c200f94258')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9b29be2c22f6ea8d327388dde3da1565')"
     ]
   }
 }

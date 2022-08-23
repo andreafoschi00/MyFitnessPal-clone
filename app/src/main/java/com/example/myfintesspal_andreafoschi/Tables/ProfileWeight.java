@@ -9,7 +9,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "weight", indices = {@Index(value = "profile_id", unique = true)}, foreignKeys = {
+@Entity(tableName = "weight", indices = {@Index(value = {"date", "profile_id"}, unique = true)}, foreignKeys = {
         @ForeignKey(
                 entity = ProfileInformation.class,
                 parentColumns = "account_id",

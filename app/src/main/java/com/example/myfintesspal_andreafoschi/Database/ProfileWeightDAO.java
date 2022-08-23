@@ -15,7 +15,7 @@ import java.util.List;
 @Dao
 public interface ProfileWeightDAO {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void addProfileWeight(ProfileWeight profileWeight);
 
     @Transaction

@@ -1,5 +1,7 @@
 package com.example.myfintesspal_andreafoschi.Fragments;
 
+import static com.example.myfintesspal_andreafoschi.Utils.Utilities.TODAY;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,8 +43,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class DashboardFragment extends Fragment {
-
-    private static final String TODAY = new SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(new Date());
 
     private PieChart pieChart;
     private LineChart lineChart;
@@ -112,17 +113,21 @@ public class DashboardFragment extends Fragment {
                     e.printStackTrace();
                 }
             });
-
+            List<Pair<String, Integer>> weightEntries = new ArrayList<>();
             //Line chart
             listViewModel.getWeightInfo().observe(activity, weights -> {
                 try {
-                    List<Pair<String, Integer>> weightEntries = new ArrayList<>();
+                    boolean found = false;
+
                     for (ProfileWeight weight : weights) {
                         if (weight.getProfile_id() == id) {
                             weightEntries.add(new Pair<>(weight.getDate(), weight.getWeight()));
+                            if(weight.getDate().equals(TODAY)){
+                                found = true;
+                            }
                         }
                     }
-                    if (weightEntries.isEmpty()) {
+                    if (weightEntries.isEmpty() || !found) {
                         weightEntries.add(new Pair<>(TODAY, weight));
                         addViewModel.addWeight(new ProfileWeight(TODAY, weight, id));
                     }
