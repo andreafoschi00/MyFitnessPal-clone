@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/single_item"
+    app:cardBackgroundColor="@color/primary_light">
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:minHeight="48dp">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/checkbox_item"
+        android:buttonTint="@color/white"/>
+
+    <TextView
+        android:id="@+id/textview_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/insert_item_here"
+        android:textSize="24sp"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/white"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>

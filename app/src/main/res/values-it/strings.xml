@@ -82,4 +82,12 @@
     <string name="error_psw2">La password dev\'essere lunga almeno 10 caratteri</string>
     <string name="psw_updated">Password aggiornata!</string>
     <string name="logout_msg">Sei sicuro?</string>
+    <string name="insert_item_here">Inserire l\'elemento qui</string>
+    <string name="delete">Cancella</string>
+    <string name="example_item">Ad esempio: mela</string>
+    <string name="item_title">Inserisci il nome dell\'articolo</string>
+    <string name="error_item">Devi inserire un nome</string>
+    <string name="item_added">Articolo aggiunto!</string>
+    <string name="clear_all">Pulisci tutto</string>
+    <string name="items_cleared">Lista svuotata!</string>
 </resources>

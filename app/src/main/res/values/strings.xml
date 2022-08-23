@@ -82,4 +82,12 @@
     <string name="error_psw2">Password must be at least 10 characters</string>
     <string name="psw_updated">Password updated!</string>
     <string name="logout_msg">Are you sure?</string>
+    <string name="insert_item_here">Insert item here</string>
+    <string name="delete">Delete</string>
+    <string name="example_item">Example: apple</string>
+    <string name="item_title">Please insert item name</string>
+    <string name="error_item">You must insert a name</string>
+    <string name="item_added">Item added!</string>
+    <string name="clear_all">Clear all</string>
+    <string name="items_cleared">Items cleared!</string>
 </resources>

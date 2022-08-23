@@ -5,9 +5,11 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
+import com.example.myfintesspal_andreafoschi.Database.CardItemRepository;
 import com.example.myfintesspal_andreafoschi.Database.ProfileDailyCaloriesRepository;
 import com.example.myfintesspal_andreafoschi.Database.ProfileInformationRepository;
 import com.example.myfintesspal_andreafoschi.Database.ProfileWeightRepository;
+import com.example.myfintesspal_andreafoschi.Tables.CardItem;
 import com.example.myfintesspal_andreafoschi.Tables.ProfileDailyCalories;
 import com.example.myfintesspal_andreafoschi.Tables.ProfileInformation;
 import com.example.myfintesspal_andreafoschi.Tables.ProfileWeight;
@@ -19,12 +21,14 @@ public class AddViewModel extends AndroidViewModel{
     private final ProfileInformationRepository repository;
     private final ProfileDailyCaloriesRepository caloriesRepository;
     private final ProfileWeightRepository weightRepository;
+    private final CardItemRepository itemRepository;
 
     public AddViewModel(@NonNull Application application) throws ParseException {
         super(application);
         repository = new ProfileInformationRepository(application);
         caloriesRepository = new ProfileDailyCaloriesRepository(application);
         weightRepository = new ProfileWeightRepository(application);
+        itemRepository = new CardItemRepository(application);
     }
 
     public void addProfile(ProfileInformation profile){
@@ -36,6 +40,8 @@ public class AddViewModel extends AndroidViewModel{
     }
 
     public void addWeight(ProfileWeight weight) { weightRepository.addWeight(weight);}
+
+    public void addCardItem(CardItem item) { itemRepository.addItem(item); }
 
     public void updateBreakfast(int calories, int id, String date) {
         caloriesRepository.updateBreakfast(calories, id, date);
@@ -67,5 +73,9 @@ public class AddViewModel extends AndroidViewModel{
 
     public void updatePassword(String newPassword, int id) {
         repository.updatePassword(newPassword, id);
+    }
+
+    public void deleteItems(int id){
+        itemRepository.deleteItems(id);
     }
 }
