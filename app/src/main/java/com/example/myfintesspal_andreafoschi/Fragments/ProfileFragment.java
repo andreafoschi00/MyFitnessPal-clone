@@ -1,4 +1,4 @@
-package com.example.myfintesspal_andreafoschi;
+package com.example.myfintesspal_andreafoschi.Fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,11 +8,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +23,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.example.myfintesspal_andreafoschi.Activities.MainActivity;
+import com.example.myfintesspal_andreafoschi.R;
+import com.example.myfintesspal_andreafoschi.Utils.Utilities;
 import com.example.myfintesspal_andreafoschi.ViewModel.AddViewModel;
 
 import java.text.SimpleDateFormat;

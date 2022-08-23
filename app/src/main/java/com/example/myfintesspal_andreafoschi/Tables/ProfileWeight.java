@@ -1,4 +1,4 @@
-package com.example.myfintesspal_andreafoschi;
+package com.example.myfintesspal_andreafoschi.Tables;
 
 import static androidx.room.ForeignKey.CASCADE;
 

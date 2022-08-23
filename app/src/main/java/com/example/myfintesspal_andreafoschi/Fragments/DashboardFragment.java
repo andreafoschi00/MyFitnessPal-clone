@@ -1,16 +1,14 @@
-package com.example.myfintesspal_andreafoschi;
+package com.example.myfintesspal_andreafoschi.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,20 +17,21 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myfintesspal_andreafoschi.Utils.Pair;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileDailyCalories;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileWeight;
+import com.example.myfintesspal_andreafoschi.R;
+import com.example.myfintesspal_andreafoschi.Utils.Utilities;
 import com.example.myfintesspal_andreafoschi.ViewModel.AddViewModel;
 import com.example.myfintesspal_andreafoschi.ViewModel.ListViewModel;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.MPPointF;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.myfintesspal_andreafoschi;
+package com.example.myfintesspal_andreafoschi.Fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.example.myfintesspal_andreafoschi.R;
+import com.example.myfintesspal_andreafoschi.Utils.Utilities;
 
 public class ShoppingListFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.myfintesspal_andreafoschi;
+package com.example.myfintesspal_andreafoschi.Tables;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

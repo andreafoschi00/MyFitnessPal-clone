@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
-import com.example.myfintesspal_andreafoschi.ProfileWeight;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileWeight;
 
 import java.util.List;
 

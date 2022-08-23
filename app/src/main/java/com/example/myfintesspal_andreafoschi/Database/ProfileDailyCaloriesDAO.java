@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
-import com.example.myfintesspal_andreafoschi.ProfileDailyCalories;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileDailyCalories;
 
 import java.util.List;
 

@@ -6,9 +6,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.myfintesspal_andreafoschi.ProfileDailyCalories;
-import com.example.myfintesspal_andreafoschi.ProfileInformation;
-import com.example.myfintesspal_andreafoschi.ProfileWeight;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileDailyCalories;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileInformation;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileWeight;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

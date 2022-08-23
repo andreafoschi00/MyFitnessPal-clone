@@ -8,9 +8,9 @@ import androidx.lifecycle.AndroidViewModel;
 import com.example.myfintesspal_andreafoschi.Database.ProfileDailyCaloriesRepository;
 import com.example.myfintesspal_andreafoschi.Database.ProfileInformationRepository;
 import com.example.myfintesspal_andreafoschi.Database.ProfileWeightRepository;
-import com.example.myfintesspal_andreafoschi.ProfileDailyCalories;
-import com.example.myfintesspal_andreafoschi.ProfileInformation;
-import com.example.myfintesspal_andreafoschi.ProfileWeight;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileDailyCalories;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileInformation;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileWeight;
 
 import java.text.ParseException;
 

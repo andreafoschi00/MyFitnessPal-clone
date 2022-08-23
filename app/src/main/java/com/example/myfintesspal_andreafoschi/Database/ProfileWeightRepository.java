@@ -4,8 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.myfintesspal_andreafoschi.ProfileDailyCalories;
-import com.example.myfintesspal_andreafoschi.ProfileWeight;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileWeight;
 
 import java.text.ParseException;
 import java.util.List;

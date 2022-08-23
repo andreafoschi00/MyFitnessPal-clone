@@ -1,4 +1,4 @@
-package com.example.myfintesspal_andreafoschi;
+package com.example.myfintesspal_andreafoschi.Activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,6 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myfintesspal_andreafoschi.Fragments.DashboardFragment;
+import com.example.myfintesspal_andreafoschi.Fragments.DiaryFragment;
+import com.example.myfintesspal_andreafoschi.Fragments.ProfileFragment;
+import com.example.myfintesspal_andreafoschi.Fragments.ShoppingListFragment;
+import com.example.myfintesspal_andreafoschi.R;
+import com.example.myfintesspal_andreafoschi.Utils.Utilities;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

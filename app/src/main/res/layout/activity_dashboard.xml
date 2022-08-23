@@ -5,11 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/primary_light"
-    tools:context=".DashboardActivity">
+    tools:context=".Activities.DashboardActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/dashboard_container_view"
-        android:name="com.example.myfintesspal_andreafoschi.DashboardFragment"
+        android:name="com.example.myfintesspal_andreafoschi.Fragments.DashboardFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

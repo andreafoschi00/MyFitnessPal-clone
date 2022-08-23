@@ -1,4 +1,4 @@
-package com.example.myfintesspal_andreafoschi;
+package com.example.myfintesspal_andreafoschi.Fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,13 +23,15 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.example.myfintesspal_andreafoschi.Tables.ProfileDailyCalories;
+import com.example.myfintesspal_andreafoschi.R;
+import com.example.myfintesspal_andreafoschi.Utils.Utilities;
 import com.example.myfintesspal_andreafoschi.ViewModel.AddViewModel;
 import com.example.myfintesspal_andreafoschi.ViewModel.ListViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Objects;
 
 public class DiaryFragment extends Fragment{
 

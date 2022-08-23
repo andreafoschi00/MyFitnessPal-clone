@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
-import com.example.myfintesspal_andreafoschi.ProfileInformation;
+import com.example.myfintesspal_andreafoschi.Tables.ProfileInformation;
 
 import java.text.ParseException;
 import java.util.List;

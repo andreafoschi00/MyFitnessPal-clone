@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:name="com.example.myfintesspal_andreafoschi.HomeFragment"
+        android:name="com.example.myfintesspal_andreafoschi.Fragments.HomeFragment"
         tools:layout="@layout/home"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
