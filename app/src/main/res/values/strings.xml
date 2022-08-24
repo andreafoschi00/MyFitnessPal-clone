@@ -90,4 +90,10 @@
     <string name="item_added">Item added!</string>
     <string name="clear_all">Clear all</string>
     <string name="items_cleared">Items cleared!</string>
+    <string name="flash">Volume up to flash on</string>
+    <string name="result">Operation completed</string>
+    <string name="result2">Result:</string>
+    <string name="string_continue">. Continue?</string>
+    <string name="error_code_reader">Code read is not a number greater than zero.</string>
+    <string name="no_value_collected">No value collected</string>
 </resources>

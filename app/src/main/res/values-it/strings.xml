@@ -90,4 +90,10 @@
     <string name="item_added">Articolo aggiunto!</string>
     <string name="clear_all">Pulisci tutto</string>
     <string name="items_cleared">Lista svuotata!</string>
+    <string name="flash">Volume su per accendere il flash</string>
+    <string name="result">Operazione completata</string>
+    <string name="result2">Risultato:</string>
+    <string name="string_continue">. Continuare?</string>
+    <string name="error_code_reader">Il codice letto non è un numero maggiore di zero.</string>
+    <string name="no_value_collected">Nessun valore memorizzato</string>
 </resources>

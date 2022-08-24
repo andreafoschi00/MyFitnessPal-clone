@@ -7,8 +7,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,15 +30,21 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.example.myfintesspal_andreafoschi.Activities.CaptureAct;
 import com.example.myfintesspal_andreafoschi.Tables.ProfileDailyCalories;
 import com.example.myfintesspal_andreafoschi.R;
 import com.example.myfintesspal_andreafoschi.Utils.Utilities;
 import com.example.myfintesspal_andreafoschi.ViewModel.AddViewModel;
 import com.example.myfintesspal_andreafoschi.ViewModel.ListViewModel;
+import com.google.android.material.snackbar.Snackbar;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class DiaryFragment extends Fragment{
 
@@ -45,6 +56,7 @@ public class DiaryFragment extends Fragment{
     private int caloriesLeft;
 
     private String trainingSelected;
+    private String buttonPressed;
 
     private TextView breakfast;
     private TextView lunch;
@@ -55,6 +67,8 @@ public class DiaryFragment extends Fragment{
     private TextView trainingIcon;
 
     private EditText txt;
+
+    private final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -149,7 +163,8 @@ public class DiaryFragment extends Fragment{
                         .setNegativeButton(R.string.use_camera, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
+                                buttonPressed = "Breakfast";
+                                scanCode();
                             }
                         })
                         .create()
@@ -194,7 +209,8 @@ public class DiaryFragment extends Fragment{
                         .setNegativeButton(R.string.use_camera, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
+                                buttonPressed = "Lunch";
+                                scanCode();
                             }
                         })
                         .create()
@@ -239,7 +255,8 @@ public class DiaryFragment extends Fragment{
                         .setNegativeButton(R.string.use_camera, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
+                                buttonPressed = "Snack";
+                                scanCode();
                             }
                         })
                         .create()
@@ -284,7 +301,8 @@ public class DiaryFragment extends Fragment{
                         .setNegativeButton(R.string.use_camera, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
+                                buttonPressed = "Dinner";
+                                scanCode();
                             }
                         })
                         .create()
@@ -299,7 +317,7 @@ public class DiaryFragment extends Fragment{
                         getString(R.string.cycling), getString(R.string.cardio),
                         getString(R.string.walk), getString(R.string.swim),
                         getString(R.string.ski)};
-
+                trainingSelected = listItems[0];
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle(R.string.title_training);
                 builder.setSingleChoiceItems(listItems, 0, new DialogInterface.OnClickListener() {
@@ -348,6 +366,67 @@ public class DiaryFragment extends Fragment{
                 .show();
             }
         });
+    }
+
+    private void scanCode() {
+        ScanOptions options = new ScanOptions();
+        options.setPrompt(getString(R.string.flash));
+        options.setOrientationLocked(true);
+        options.setBeepEnabled(false);
+        options.setCaptureActivity(CaptureAct.class);
+        barLauncher.launch(options);
+    }
+
+    private final ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result ->
+    {
+        if(result.getContents() != null){
+            if(isNumeric(result.getContents())){
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+                builder.setTitle(R.string.result);
+                builder.setMessage(getString(R.string.result2) + " " + result.getContents() + getString(R.string.string_continue));
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        int number = Math.round(Float.parseFloat(result.getContents()));
+                        switch (buttonPressed){
+                            case "Breakfast":
+                                addBreakfast(number);
+                            break;
+                            case "Lunch":
+                                addLunch(number);
+                            break;
+                            case "Snack":
+                                addSnack(number);
+                            break;
+                            case "Dinner":
+                                addDinner(number);
+                            break;
+                            default:
+                            break;
+                        }
+                    }
+                });
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                builder.show();
+            }
+            else {
+                Toast.makeText(getContext(), R.string.error_code_reader, Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(getContext(), R.string.no_value_collected, Toast.LENGTH_SHORT).show();
+        }
+    });
+
+    private boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        return pattern.matcher(strNum).matches() && Float.parseFloat(strNum) > 0;
     }
 
     private void updateLogo(String logo){
