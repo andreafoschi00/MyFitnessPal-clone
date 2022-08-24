@@ -55,6 +55,11 @@ public class LoginFragment extends Fragment {
             email = view.findViewById(R.id.email_placetext);
             psw = view.findViewById(R.id.psw_placetext);
 
+            if(Utilities.getEmail() != null && Utilities.getPassword() != null){
+                email.setText(Utilities.getEmail());
+                psw.setText(Utilities.getPassword());
+            }
+
             view.findViewById(R.id.try_login_button).setOnClickListener(view1 -> {
                 viewModel = new ViewModelProvider(activity).get(ListViewModel.class);
                 viewModel.getProfilesInfo().observe(activity, profileInformation -> {

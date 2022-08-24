@@ -137,6 +137,8 @@ public class RegistrationFragment extends Fragment {
                                             Utilities.insertMainActivityFragment((AppCompatActivity) activity,
                                                     new LoginFragment(),
                                                     LoginFragment.class.getSimpleName());
+                                            Utilities.setEmail(email.getText().toString());
+                                            Utilities.setPsw(password.getText().toString());
                                         }
                                     })
                                     .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {

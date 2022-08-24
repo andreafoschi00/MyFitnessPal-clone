@@ -18,6 +18,9 @@ public class Utilities {
 
     public static final String TODAY = new SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(new Date());
 
+    private static String email = null;
+    private static String password = null;
+
     public static void insertMainActivityFragment(AppCompatActivity activity, Fragment fragment, String tag){
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
 
@@ -50,5 +53,21 @@ public class Utilities {
         } else {
             activity.getSupportActionBar().setTitle(title);
         }
+    }
+
+    public static void setEmail(String mail) {
+        email = mail;
+    }
+
+    public static void setPsw(String psw) {
+        password = psw;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static String getPassword() {
+        return password;
     }
 }
