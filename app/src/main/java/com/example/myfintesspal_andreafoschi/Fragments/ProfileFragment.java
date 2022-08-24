@@ -29,6 +29,7 @@ import com.example.myfintesspal_andreafoschi.Activities.MainActivity;
 import com.example.myfintesspal_andreafoschi.R;
 import com.example.myfintesspal_andreafoschi.Utils.Utilities;
 import com.example.myfintesspal_andreafoschi.ViewModel.AddViewModel;
+import com.journeyapps.barcodescanner.Util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -145,6 +146,8 @@ public class ProfileFragment extends Fragment {
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     SharedPreferences sharedPreferences = activity.getSharedPreferences("MY_PREF", Context.MODE_PRIVATE);
                                     sharedPreferences.edit().clear().apply();
+                                    Utilities.setEmail(null);
+                                    Utilities.setPsw(null);
                                     Intent intent = new Intent(getContext(), MainActivity.class);
                                     startActivity(intent);
                                     activity.finish();
